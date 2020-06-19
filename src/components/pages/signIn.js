@@ -6,6 +6,8 @@ export const signIn = (props) => {
   const markup = `
   <h1>SignIn</h1>
   ${authForm(props)}`
+  content.innerHTML = markup;
+  
 
-  content.innerHTML = markup
+
 }

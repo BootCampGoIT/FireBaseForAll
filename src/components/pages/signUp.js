@@ -1,4 +1,7 @@
 import { authForm } from '../authForm/authForm';
+import { createListeners } from '../auth/services';
+
+
 
 export const signUp = (props) => {
   const content = document.querySelector('.content');
@@ -6,10 +9,8 @@ export const signUp = (props) => {
   const markup = `
   <h1>SignUp</h1>
   ${authForm(props)}
-
-
-
   `
+  content.innerHTML = markup;
 
-  content.innerHTML = markup
+  createListeners();
 }

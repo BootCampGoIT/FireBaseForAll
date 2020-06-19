@@ -38,6 +38,7 @@ body {
   text-align: center;
   line-height: 30px;
   font-weight: 800;
+  cursor: pointer;
 }
 
 .listItemActive {
@@ -46,4 +47,8 @@ body {
 
 .content {
   padding: 5px;
+}
+
+.unvisible {
+  display: none;
 }
