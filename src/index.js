@@ -2,7 +2,7 @@ import './styles.css';
 import { signUp } from './components/pages/signUp';
 import { signIn } from './components/pages/signIn';
 import { home } from './components/pages/home';
-import { signOutUser } from './components/auth/authServices';
+import { signOutUser } from './components/auth/services';
 import { setVisiblePages, clearActiveStyles } from './components/auth/services';
 
 const list = document.querySelector('.list');
@@ -10,7 +10,7 @@ const activePage = document.querySelector('.listItem');
 activePage.classList.add('listItemActive');
 home();
 setVisiblePages();
-
+  
 const getPage = (e) => {
   if (e.target === e.currentTarget) {
     return

@@ -13,7 +13,14 @@ export const signUpUser = (user) => {
       clearActiveStyles();
     })
 }
-
-export const signOutUser = () => {
-  localStorage.clear();
+export const signInUser = (user) => {
+  axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`, { ...user, returnSecureToken: true })
+    .then(response => {
+      localStorage.setItem("user", JSON.stringify({ email: response.data.email, token: response.data.idToken }));
+      setVisiblePages();
+      home();
+      clearActiveStyles();
+    })
 }
+
+

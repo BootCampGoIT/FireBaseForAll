@@ -1,4 +1,4 @@
-import { signUpUser } from "./authServices";
+import { signUpUser, signInUser } from "./authServices";
 
 const user = {
   email: "",
@@ -36,16 +36,21 @@ export const clearActiveStyles = () => {
 
 const submitForm = (e) => {
   e.preventDefault();
-  signUpUser(user)
+
+  e.target.submitButton.dataset.loginbutton === 'signup'
+    ? signUpUser(user)
+    : signInUser(user)
+
   document.forms.authForm.reset();
   user.email = "";
   user.password = "";
 }
 
-
-
 export const createListeners = () => {
   const authForm = document.forms.authForm;
   authForm.addEventListener('input', getUserInfo);
   authForm.addEventListener('submit', submitForm);
+}
+export const signOutUser = () => {
+  localStorage.clear();
 }
